@@ -1,0 +1,77 @@
+@import "../../styles/_responsive";
+.item {
+  padding: 40px;
+  background: rgb(246, 243, 243);
+  width: 23.5%;
+  height: 550px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
+  .item-image {
+    text-align: center;
+    width: 100%;
+    .image {
+      width: 100%;
+    }
+  }
+  .name {
+    margin-top: 20px;
+    font-size: 1.6rem;
+  }
+  .price {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .color-btn {
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0.5px solid rgb(99, 98, 98);
+  }
+  @include tablet{
+    width: 47.6%;
+    padding: 30px;
+    height: 450px;
+  
+    .name {
+      font-size: 1.4rem;
+    }
+    .price {
+      font-size: 1.6rem;
+    }
+  }
+  @include mobile{
+    width: 100%;
+    padding: 20px;
+    height: 550px;
+    text-align: center;
+  
+    .name {
+      font-size: 1.4rem;
+    }
+    .price {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.link {
+  margin-top: 15px;
+  .btn {
+    background: black;
+    color: #cdbc7a;
+    padding: 6px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background: rgb(72, 72, 248);
+      color: white;
+    }
+  }
+}

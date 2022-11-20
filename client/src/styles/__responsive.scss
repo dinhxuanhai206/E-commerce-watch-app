@@ -1,0 +1,38 @@
+@mixin sm-mobile {
+    @media only screen and (max-width: 320px) {
+        @content;
+    }
+}
+
+@mixin md-mobile {
+    @media only screen and (max-width: 639px) {
+        @content;
+    }
+}
+
+// Mobile
+@mixin mobile {
+    @media only screen and (max-width: 739px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (max-width: 1023px) {
+        @content;
+    }
+}
+
+//PC
+@mixin desktop {
+    @media only screen and (max-width: 1179px) {
+        @content;
+    }
+}
+
+// Large Desktop 
+@mixin lg-desktop {
+    @media only screen and (min-width: 1180px) {
+        @content;
+    }
+}

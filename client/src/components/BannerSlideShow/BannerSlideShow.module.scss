@@ -1,0 +1,55 @@
+@import "../../styles/_responsive";
+.wrapper {
+  overflow: hidden;
+}
+
+.banner-slides {
+  background: #0a1624;
+  width: 100%;
+  height: 100%;
+
+  .swiper {
+    max-width: 2000px;
+    margin: auto;
+    height: 700px;
+    @include tablet{
+      width: 100%;
+      height: 300px;
+    }
+    @include mobile{
+      width: 100%;
+      height: 150px;
+    }
+    
+  }
+  .swiper-slide {
+    width: 100%;
+  }
+
+  .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include tablet{
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+    }
+  }
+
+  .custom-pagination {
+    background: #e9e2cf;
+    width: 40px;
+    height: 4px;
+    border-radius: 0;
+  }
+}
+
+.no-data-banner {
+  background: #ffc0c0;
+  color: #ee0e0e;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #ee0e0e;
+}

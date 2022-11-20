@@ -1,0 +1,218 @@
+@import "../../../styles/_responsive";
+.wrapper {
+  width: 100%;
+  background-color: #f4f2f0;
+  padding: 30px 0;
+}
+.block-order {
+  background: #ffffff;
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 40px 60px 40px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+  @include mobile {
+    width: 100%;
+  }
+  .title {
+    text-align: center;
+    letter-spacing: 4px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    // font-family: --main-font;
+  }
+  .desc {
+    margin-top: 15px;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    @include mobile {
+      text-align: center;
+      font-size: 1.4rem;
+    }
+  }
+  .block-mail {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    @include mobile {
+      flex-wrap: wrap;
+    }
+    .mail-input {
+      width: 80%;
+      .input {
+        width: 100%;
+        border: 1px solid rgb(209, 207, 207);
+        padding: 15px;
+        border-bottom: 2px solid #000;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .btn-sign {
+      width: 20%;
+      .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+        color: #cdbc7a;
+        background: #000000;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        cursor: pointer;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+}
+.media-block {
+  background: #ffffff;
+  max-width: 700px;
+  margin: 30px auto;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 10px;
+  .media {
+    font-size: 2.6rem;
+    cursor: pointer;
+    &:hover {
+      color: red;
+    }
+  }
+}
+.name {
+  letter-spacing: 3px;
+  font-weight: 600;
+  font-size: 2.4rem;
+  text-align: center;
+  padding-top: 30px;
+  @include mobile {
+    font-size: 2.2rem;
+  }
+}
+.text {
+  text-align: center;
+  letter-spacing: 1px;
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+.footer-bottom {
+  width: 100%;
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    gap: 30px;
+    width: 100%;
+    @include mobile {
+      flex-wrap: wrap;
+    }
+    .contact {
+      width: 50%;
+      padding: 0 10px;
+      .title {
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .desc {
+        margin-bottom: 10px;
+      }
+      @include tablet {
+        .title {
+          font-size: 1.8rem;
+        }
+        .desc {
+          font-size: 1.4rem;
+        }
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .about {
+      width: 25%;
+      padding: 0 10px;
+      .title {
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      @include tablet {
+        .title {
+          font-size: 1.8rem;
+        }
+        .desc {
+          font-size: 1.4rem;
+        }
+      }
+      @include mobile {
+        width: 45%;
+      }
+    }
+    .menu {
+      width: 25%;
+      padding: 0 10px;
+      .title {
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      @include tablet {
+        .title {
+          font-size: 1.8rem;
+        }
+        .desc {
+          font-size: 1.4rem;
+        }
+      }
+      @include mobile {
+        width: 45%;
+      }
+    }
+  }
+}
+.menu-link {
+  position: relative;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  &::before {
+    position: absolute;
+    content: " ";
+    bottom: -2px;
+    height: 1px;
+    width: 0;
+    left: 0;
+    opacity: 0;
+    transition: ease 0.3s;
+    background-color: rgb(15, 15, 15);
+  }
+  &:hover {
+    &::before {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+.copy {
+  width: 100%;
+  background: #000000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.4rem;
+}

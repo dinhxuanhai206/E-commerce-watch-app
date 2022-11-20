@@ -1,0 +1,112 @@
+@import "../../../styles/_responsive";
+
+.header {
+  width: 100%;
+  background-color: black;
+  height: 30px;
+  transition: height 0.3s ease;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+
+.header-bottom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: black;
+  color: white;
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    line-height: 70px;
+    margin: 0 auto;
+    color: white;
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: red;
+      font-size: 30px;
+    }
+    .menu-left {
+      .menu {
+        display: flex;
+        gap: 80px;
+      }
+      @include tablet {
+        display: none;
+      }
+    }
+    .right {
+      display: flex;
+      gap: 30px;
+      .sign {
+        color: white;
+      }
+      @include tablet {
+        display: none;
+      }
+    }
+    .s-cart {
+      color: white;
+      position: relative;
+      .cart {
+        position: absolute;
+        width: 20px;
+        top: -10px;
+        left: 20px;
+        text-align: center;
+      }
+    }
+    .shopping {
+      font-size: 26px;
+    }
+  }
+  .link {
+    color: white;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: " ";
+      bottom: -2px;
+      height: 1px;
+      width: 0;
+      left: 0;
+      opacity: 0;
+      transition: ease 0.3s;
+      background-color: rgb(236, 238, 242);
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+}
+.btn-logout {
+  background-color: black;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.menu-icons {
+  display: none;
+  margin-bottom: -4px;
+  font-size: 20px;
+  color: white;
+  @include tablet {
+    display: block;
+  }
+}

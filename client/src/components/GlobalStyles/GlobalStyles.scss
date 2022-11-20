@@ -1,0 +1,197 @@
+@import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Merriweather:wght@900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap" rel="stylesheet"');
+:root {
+  --primary: #fdb813;
+  --black: #000;
+  --textColor: #333;
+  --mainFont: "Roboto", sans-serif;
+  --menuFont: "AvenirLTStd", sans-serif;
+
+  //Default Layout
+  --defaultLayoutHeaderHeight: 60px;
+  --defaultLayoutWidth: 1440px;
+  --defaultLayoutWidthMobile: 480px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 1vw;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+  }
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+body {
+  font-family: var(--mainFont);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  color: var(--textColor);
+}
+
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+}
+
+a[href] {
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Fonts embed
+// @font-face {
+// 	font-family: AvenirLTStd;
+// 	src: url('/assets/fonts/AvenirLTStd-Light.woff2');
+// 	font-weight: lighter;
+// }
+// @font-face {
+// 	font-family: AvenirNextLTPro;
+// 	src: url('/assets/fonts/AvenirNextLTPro-Bold.woff2');
+// 	font-weight: bold;
+// }
+// @font-face {
+// 	font-family: AvenirNextLTPro;
+// 	src: url('/assets/fonts/AvenirNextLTPro-Demi.ttf');
+// 	font-weight: 600;
+// }
+// @font-face {
+// 	font-family: AvenirNextLTPro;
+// 	src: url('/assets/fonts/AvenirNextLTPro-Regular.ttf');
+// 	font-weight: 400;
+// }
+// @font-face {
+// 	font-family: AvenirLTStd;
+// 	src: url('/assets/fonts/AvenirLTStd-Light.woff2');
+// 	font-weight: 300;
+// }
+// @font-face {
+// 	font-family: AvenirLT45;
+// 	src: url('/assets/fonts/AvenirLT45-Book.woff2');
+// 	font-weight: 300;
+// }
+// @font-face {
+// 	font-family: AvenirLT45;
+// 	src: url('/assets/fonts/AvenirLT95-Black.woff2');
+// 	font-weight: 900;
+// }
+// @font-face {
+// 	font-family: Limerick;
+// 	src: url('/assets/fonts/Limerick-DemiBold.woff');
+// 	font-weight: 600;
+// }
+// @font-face {
+// 	font-family: Limerick;
+// 	src: url('/assets/fonts/Limerick-ExtraBold.woff');
+// 	font-weight: 800;
+// }
+// color
+$white: #ffffff;
+$black: #000;
+$violet: #4ceb95;
+$grayviolet: #7979b2;
+$cyan: #67c8ff;
+$grayblue: #2c2a6d;
+$darkblue: #161533;
+$whitegray: #fafafa;
+
+$textdark: #7979b2;
+$textlight: #8c9bdb;
+$bgdark: #05050f;
+$bglight: #f0f2f5;
+
+$bg-light-900: #f2f2fc;
+$bg-light-100: #fafafa;
+$bg-light-50: #e8dfec;
+$bg-light-10: #fdf9ff8a;
+$text-light-900: #302e4d;
+$text-light-700: #504e70;
+$text-light-500: #c9c2cc;
+
+// color dark mode
+$bg-black-900: #151515;
+$bg-black-100: #222222;
+$bg-black-50: #393939;
+$bg-black-10: #2222228a;
+$text-black-900: #ffffff;
+$text-black-700: #e9e9e9;
+$text-black-500: #646464;
+
+// color
+$color-organe: #fa5b0f;
+$color-green: #37b182;
+$color-blue: #1854b4;
+$color-pink: #f021b2;
+$color-red: #ec1839;
+
+// .container {
+//   max-width: 1440px;
+//   min-width: 320px;
+//   margin: 0 auto;
+//   // padding: 0px 19px;
+//   // @include tablet {
+//   //   min-width: unset;
+//   //   max-width: 1023px;
+//   //   margin: 0 auto;
+//   //   padding: 0 14px;
+//   // }
+//   // @include mobile {
+//   //   min-width: 320px;
+//   //   max-width: 480px;
+//   //   margin: 0 auto;
+//   //   padding: 0 14px;
+//   // }
+// }
+
+// .swiper-pagination{
+// 	text-align: right;
+//     padding-right: 4rem;
+//     padding-bottom: 2rem;
+// 	@include mobile{
+// 		text-align: center;
+// 		padding-right: 0;
+// 		padding-bottom: 0;
+// 		bottom: -5px;
+// 	}
+// 	@include tablet{
+// 		text-align: center;
+// 		padding-right: 0;
+// 		padding-bottom: 0;
+// 		bottom: -5px;
+// 	}
+// }
+
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}

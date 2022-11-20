@@ -1,0 +1,65 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/lab": "^5.0.0-alpha.78",
+    "@mui/material": "^5.6.2",
+    "@reduxjs/toolkit": "^1.8.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "add": "^2.0.6",
+    "axios": "^0.26.1",
+    "history": "^5.3.0",
+    "normalize-css": "^2.3.1",
+    "react": "^17.0.2",
+    "react-datepicker": "^4.7.0",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.36.1",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
+    "react-responsive": "^9.0.0",
+    "react-router": "^5.3.4",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.0",
+    "react-stripe-checkout": "^2.6.3",
+    "react-toastify": "^9.0.8",
+    "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
+    "swiper": "^8.3.2",
+    "web-vitals": "^2.1.0",
+    "yarn": "^1.22.18"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "sass": "^1.54.4"
+  },
+  "proxy": "http://localhost:5500/api/"
+}
