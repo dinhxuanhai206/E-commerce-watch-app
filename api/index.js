@@ -9,9 +9,7 @@ const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
-
-// const listRoute = require("./routes/lists");
-// const commentRoute = require("./routes/comment");
+const commentRoute = require("./routes/comment");
 
 dotenv.config();
 
@@ -33,8 +31,7 @@ app.use("/api/product", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
-// app.use("/api/lists", listRoute);
-// app.use("/api/comment", commentRoute);
+app.use("/api/comment", commentRoute);
 
 app.listen(5500, () => {
   console.log("Backend server is running!");

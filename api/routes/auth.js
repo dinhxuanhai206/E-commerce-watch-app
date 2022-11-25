@@ -3,31 +3,30 @@ const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
-//REGISTER
 router.post("/register", async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
     password: CryptoJS.AES.encrypt(
       req.body.password,
-      process.env.SECRET_KEY
+      process.env.PASS_SEC
     ).toString(),
   });
   try {
-    const user = await newUser.save();
-    res.status(201).json(user);
+    const savedUser = await newUser.save();
+    res.status(201).json(savedUser);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//LOGIN
+// LOGIN
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     !user && res.status(401).json("Wrong password or username!");
 
-    const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
+    const bytes = CryptoJS.AES.decrypt(user.password, process.env.PASS_SEC);
     const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
 
     originalPassword !== req.body.password &&
@@ -35,7 +34,7 @@ router.post("/login", async (req, res) => {
 
     const accessToken = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
-      process.env.SECRET_KEY,
+      process.env.JWT_SEC,
       { expiresIn: "100d" }
     );
 
@@ -46,5 +45,6 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;
