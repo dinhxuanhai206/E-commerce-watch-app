@@ -1,3 +1,4 @@
+@import "../../styles/_responsive";
 .title {
   margin-top: 80px;
   text-align: center;
@@ -7,9 +8,12 @@
   font-weight: bold;
 }
 .bb-10 {
+  display: block;
   text-align: center;
   margin-bottom: 80px;
+  margin-top: 10px;
 }
+
 .title-block {
   display: flex;
   max-width: 1200px;
@@ -32,6 +36,21 @@
   .product-total {
     width: 20%;
   }
+  @include mobile {
+    font-size: 14px;
+    .product {
+      padding: 0 5px;
+    }
+    .product-price {
+      padding: 0 5px;
+    }
+    .product-quantity {
+      padding: 0 5px;
+    }
+    .product-total {
+      padding: 0 5px;
+    }
+  }
 }
 .cart-block {
   max-width: 1200px;
@@ -42,63 +61,92 @@
     width: 100%;
     border-bottom: 1px solid #000;
     gap: 10px;
-    .item-block {
-      display: flex;
-      width: 40%;
-      gap: 30px;
-      align-items: center;
-      .image {
-        width: 30%;
-        height: 150px;
-        .img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      .name-right {
-        width: 60%;
-        .name {
-          font-size: 1.4rem;
-        }
-        .btn-remove {
-          margin-top: 5px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          cursor: pointer;
-          color: #cdbc7a;
-          background: #000000;
-          &:hover {
-            color: #fbfbf9;
-            background: rgb(30, 30, 239);
-            transition: ease 0.5s;
-          }
-        }
-      }
-    }
-    .price {
-      width: 20%;
-      font-weight: bold;
-    }
-    .quantity {
-      width: 20%;
-      font-weight: bold;
-      display: flex;
-      gap: 15px;
-      .btn {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        cursor: pointer;
-        line-height: 20px;
-      }
-    }
-    .total {
-      width: 20%;
-      font-weight: bold;
+    @include mobile {
+      margin-top: 10px;
+      padding-bottom: 20px;
     }
   }
 }
-
+///////////////////////////////
+.item-block {
+  display: flex;
+  width: 40%;
+  gap: 30px;
+  align-items: center;
+  @include mobile {
+    gap: 10px;
+    flex-direction: column;
+  }
+  .image {
+    width: 30%;
+    height: 150px;
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+    @include mobile {
+      width: 80%;
+      height: 100px;
+    }
+  }
+  .name-right {
+    width: 60%;
+    .name {
+      font-size: 1.4rem;
+    }
+    .btn-remove {
+      margin-top: 5px;
+      padding: 5px 12px;
+      border-radius: 3px;
+      cursor: pointer;
+      color: #cdbc7a;
+      background: #000000;
+      &:hover {
+        color: #fbfbf9;
+        background: rgb(30, 30, 239);
+        transition: ease 0.5s;
+      }
+    }
+    @include mobile {
+      width: 100%;
+      padding: 0 5px;
+    }
+  }
+}
+.price {
+  width: 20%;
+  font-weight: bold;
+  @include mobile {
+    padding: 0 5px;
+  }
+}
+.quantity {
+  width: 20%;
+  font-weight: bold;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  .btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 15px;
+    color: #cdbc7a;
+    background: #000000;
+  }
+  @include mobile {
+    gap: 5px;
+    padding: 0 5px;
+  }
+}
+.total {
+  width: 20%;
+  font-weight: bold;
+  @include mobile {
+    padding: 0 5px;
+  }
+}
 .total-block {
   display: flex;
   max-width: 1200px;
@@ -116,6 +164,11 @@
     display: flex;
     gap: 50px;
     font-weight: bold;
+    @include mobile {
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 5px;
+    }
   }
 }
 
@@ -131,7 +184,7 @@
   cursor: pointer;
 }
 
-//
+//////////////////////
 .wrapper-success {
   position: fixed;
   top: 50%;
@@ -143,8 +196,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include tablet{
+    width: 100%;
+    height: 100%;
+  }
 }
-.close{
+.close {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -156,6 +213,14 @@
   background: black;
   border-radius: 8px;
   overflow: hidden;
+  @include tablet{
+    width: 580px;
+    height: 520px;
+  }
+  @include mobile{
+    width: 300px;
+    height: 520px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -197,6 +262,9 @@
   padding: 50px 40px;
   display: flex;
   flex-direction: column;
+  @include mobile{
+    padding: 50px 20px;
+  }
   & h2 {
     color: #cdbc7a;
     font-weight: 600;
@@ -206,7 +274,13 @@
   .inputBox {
     position: relative;
     width: 600px;
-  
+    @include tablet{
+      width: 500px;
+    }
+    @include mobile{
+      width: 250px;
+    }
+
     margin-top: 35px;
     & input {
       position: relative;
@@ -255,7 +329,7 @@
   .inputBox input:focus ~ i {
     height: 44px;
   }
-  .subtotal-node{
+  .subtotal-node {
     margin-top: 40px;
     color: white;
   }

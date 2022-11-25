@@ -1,3 +1,4 @@
+@import "../../styles/_responsive";
 .wrapper {
   display: flex;
   justify-content: center;
@@ -12,6 +13,10 @@
   background: black;
   border-radius: 8px;
   overflow: hidden;
+  @include mobile {
+    width: 300px;
+    height: 420px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -22,6 +27,10 @@
     background: linear-gradient(0deg, transparent, #cdbc7a, #cdbc7a);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
+    @include mobile {
+      width: 300px;
+      height: 420px;
+    }
   }
   &::after {
     content: "";
@@ -34,6 +43,10 @@
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     animation-delay: -3s;
+    @include mobile {
+      width: 300px;
+      height: 420px;
+    }
   }
 }
 @keyframes animate {
@@ -53,6 +66,9 @@
   padding: 50px 40px;
   display: flex;
   flex-direction: column;
+  @include mobile {
+    padding: 50px 10px;
+  }
   & h2 {
     color: #cdbc7a;
     font-weight: 600;
@@ -63,6 +79,10 @@
     position: relative;
     width: 300px;
     margin-top: 35px;
+    @include mobile {
+      width: 270px;
+  
+    }
     & input {
       position: relative;
       width: 100%;
@@ -76,7 +96,6 @@
       letter-spacing: 1px;
       cursor: pointer;
       z-index: 10;
-     
     }
     & span {
       position: absolute;
@@ -106,7 +125,6 @@
     transition: 0.5s;
     pointer-events: none;
     z-index: 9;
-
   }
   .inputBox input:valid ~ i,
   .inputBox input:focus ~ i {
@@ -119,15 +137,15 @@
       margin: 10px 0;
       font-style: 1.4rem;
       color: #8f8f8f;
-      &:hover{
+      &:hover {
         color: #cdbc7a;
       }
-      &:nth-child(2){
+      &:nth-child(2) {
         color: #cdbc7a;
       }
     }
   }
-  .btn-submit{
+  .btn-submit {
     border: none;
     outline: none;
     background: #cdbc7a;
@@ -137,6 +155,5 @@
     border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
-
   }
 }

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { registerUser, userLogin } from "./userActions";
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const userToken = localStorage.getItem("userToken")
   ? JSON.parse(localStorage.getItem("userToken"))
   : null;
@@ -11,7 +12,7 @@ const userInfo = localStorage.getItem("userInfo")
 const initialState = {
   loading: false,
   userInfo: {},
-  userToken: "",
+  accessToken: "",
   error: null,
   success: false,
 };
@@ -21,11 +22,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem("userToken"); // deletes token from storage
+      localStorage.removeItem("accessToken"); // deletes token from storage
       localStorage.removeItem("userInfo"); // deletes token from storage
       state.loading = false;
       state.userInfo = null;
-      state.userToken = null;
+      state.accessToken = null;
       state.error = null;
     },
   },
@@ -37,7 +38,8 @@ const userSlice = createSlice({
     },
     [registerUser.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.success = true; // registration successful
+      state.success = true;
+       // registration successful
     },
     [registerUser.rejected]: (state, { payload }) => {
       state.loading = false;
@@ -52,9 +54,11 @@ const userSlice = createSlice({
     [userLogin.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.userInfo = payload;
-      state.userToken = payload.accessToken;
+      state.accessToken = payload.accessToken;
       state.success = true;
       localStorage.setItem("userInfo", JSON.stringify(state.userInfo));
+      // localStorage.setItem("accessToken", JSON.stringify(state.accessToken));
+   
     },
     [userLogin.rejected]: (state, { payload }) => {
       state.loading = false;

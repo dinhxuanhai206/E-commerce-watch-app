@@ -1,0 +1,47 @@
+.profile-info {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin: 30px 30px;
+  align-items: center;
+}
+.profile-image {
+  width: 60px;
+  height: 60px;
+  .img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+.profile-acccount {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  background: #fbfbf9;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 3px;
+  &[href]{
+    color: black;
+  }
+}
+.item-active {
+  background: #cdbc7a;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 3px;
+  &[href]{
+    color: rgb(254, 249, 249);
+  }
+}
+

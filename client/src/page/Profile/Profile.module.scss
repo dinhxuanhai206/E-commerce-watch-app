@@ -1,0 +1,33 @@
+@import "../../styles/_app";
+.profile{
+    background-color: rgba(23, 23, 23, 0.9);
+    height: 100vh;
+    padding: 100px 0;
+}
+.profile-wrapper{
+   display: flex;
+   justify-content: space-between;
+   min-height: 400px;
+   @include mobile{
+    flex-wrap: wrap;
+   }
+}
+
+.profile-left{
+    width: 30%;
+    background: rgba(10, 10, 10, 0.999);
+    color: #cdbc7a;
+    font-weight: bold;
+    border-radius: 5px 0px 0px 5px;
+    @include mobile{
+        width: 100%;
+    }
+}
+.profile-right{
+    width: 70%;
+    background: rgb(203, 192, 136);
+    border-radius: 0px 5px 5px 0px;
+    @include mobile{
+        width: 100%;
+    }
+}

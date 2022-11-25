@@ -5,19 +5,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../redux/userActions";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const cx = classNames.bind(styles);
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const { loading, error, userInfo, success } = useSelector((state) => state.user);
+  const { loading, error, userInfo, success } = useSelector(
+    (state) => state.user
+  );
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const submitForm = (data) => {
     dispatch(userLogin(data));
-      navigate("/");
+    navigate("/");
+    if(success === true){
+      toast("login success")
+    }
+    
   };
-  
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("box")}>
@@ -42,6 +51,7 @@ const Login = () => {
             </Link>
           </div>
           <input type="submit" value="Login" className={cx("btn-submit")} />
+          <ToastContainer />
         </form>
       </div>
     </div>

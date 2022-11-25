@@ -9,6 +9,9 @@ const routes = {
   login: "/login",
   register: "/register",
   success: "/success",
+  profile: "/profile",
+  account: "/account",
+  purchase: "/purchase"
 };
 
 export default routes;

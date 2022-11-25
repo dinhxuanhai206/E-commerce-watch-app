@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
@@ -31,6 +32,7 @@ const cartSlice = createSlice({
      
       }
       // localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+     
     },
     decrease(state, action) {
       const itemIndex = state.cartItems.findIndex(

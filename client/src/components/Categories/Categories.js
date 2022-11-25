@@ -2,8 +2,10 @@ import React from "react";
 import classNames from "classnames/bind";
 import styles from "./Categories.module.scss";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const cx = classNames.bind(styles);
+
 
 const fillterButton = [
   {
@@ -24,7 +26,9 @@ const fillterButton = [
   },
 ];
 
+
 const Categories = () => {
+  
   return (
     <div className={cx("container")}>
       <div className={cx("wrapper")}>

@@ -1,9 +1,12 @@
 @import "../../styles/_responsive";
 .item {
   padding: 40px;
-  background: rgb(246, 243, 243);
+  background: rgb(252, 253, 253);
   width: 23.5%;
-  height: 550px;
+  min-height: 550px;
+  @include mobile{
+    min-height: 350px;
+}
   cursor: pointer;
 
   &:hover {
@@ -15,6 +18,9 @@
     width: 100%;
     .image {
       width: 100%;
+      @include mobile{
+          width: 80%;
+      }
     }
   }
   .name {

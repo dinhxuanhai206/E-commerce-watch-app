@@ -37,7 +37,16 @@ function App() {
                   <Page />
                 </Layout>
               }
-            />
+            >
+            {
+              route.children ? route.children?.map((children, i) => {
+                const Children = children.component
+                return (
+                  <Route key={i} path={`${children.path}`} element={<Children />} />
+                )
+              }) : null
+            }
+            </Route>
           );
         })}
       </Routes>

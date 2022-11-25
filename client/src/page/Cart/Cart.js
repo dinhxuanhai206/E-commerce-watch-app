@@ -15,16 +15,17 @@ import { useNavigate } from "react-router-dom";
 import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
-
 
 const Cart = () => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const { register, handleSubmit } = useForm();
   const products = useSelector((state) => state.cart);
-
+  const userInfo = useSelector((state) => state.user.userInfo);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,16 +45,23 @@ const Cart = () => {
   const handleClear = () => {
     dispatch(clearCart());
   };
+  useEffect(() => {
+		document.documentElement.scrollTop = 0
+	}, [])
 
   const submitForm = (data) => {
-    console.log(data);
-    navigate("/success", {
-      state: {
-        infoData: data,
-        product: products,
-      },
-    });
-    dispatch(clearCart());
+    if(userInfo){
+      navigate("/success", {
+        state: {
+          infoData: data,
+          product: products,
+        },
+      });
+      dispatch(clearCart());
+    }
+    else{
+      navigate("/login")
+    }
   };
   return (
     <div className={cx("container")}>
@@ -102,14 +110,14 @@ const Cart = () => {
             </form>
           </div>
         </div>
-      ): null}
+      ) : null}
       {products.cartItems.length === 0 ? (
         <div className={cx("wrapper")}>
           <div className={cx("title")}>Shopping Cart</div>
-          <div className={cx("bb-10")}>Go Back Shop</div>
+          <Link to="/" className={cx("bb-10")}>Go Back Shop</Link>
         </div>
       ) : (
-        <div className={cx("block")}>
+        <div className={cx("wrapper-cart")}>
           <div className={cx("title")}>Shopping Cart</div>
           <div className={cx("title-block")}>
             <div className={cx("product")}>Product</div>

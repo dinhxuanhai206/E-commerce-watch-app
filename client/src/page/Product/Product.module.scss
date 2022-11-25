@@ -111,41 +111,36 @@
   }
 }
 
-.bottom {
-  .desc-title {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 20px;
-    font-size: 2rem;
-    border-bottom: 2px solid rgb(216, 214, 214);
-    margin-bottom: 20px;
+.productTab {
+  display: flex;
+  width: 100%;
+}
+.productTab-item {
+  width: 50%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  font-size: 2rem;
+  border-bottom: 2px solid rgb(216, 214, 214);
+  margin-bottom: 20px;
+  cursor: pointer;
+  &:hover{
+    border-bottom: 1px solid rgb(16, 15, 15);
   }
-  .desc {
-    margin-bottom: 20px;
+  @include mobile{
+    font-size: 14px;
   }
-  .block {
-    margin-bottom: 30px;
-    .thickness {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      .thickness-name {
-        padding: 5px 10px;
-        width: 50%;
-        border: 1px solid rgb(216, 214, 214);
-        @include mobile {
-          height: 60px;
-          line-height: 25px;
-        }
-      }
-      .prop {
-        padding: 5px 10px;
-        width: 50%;
-        border: 1px solid rgb(216, 214, 214);
-        @include mobile {
-          height: 60px;
-        }
-      }
-    }
+}
+.productTab-item-active{
+  width: 50%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  font-size: 2rem;
+  border-bottom: 4px solid rgb(16, 15, 15);
+  margin-bottom: 20px;
+  cursor: pointer;
+  @include mobile{
+    font-size: 14px;
   }
 }

@@ -6,8 +6,7 @@ import { userRequest } from "../../requestMethods";
 
 const Success = () => {
   const { state } = useLocation();
-  console.log(state.infoData);
-  console.log(state.product);
+ 
   //in Cart.jsx I sent data and cart. Please check that page for the changes.(in video it's only data)
   const data = state.infoData;
   const cart = state.product;
@@ -16,7 +15,6 @@ const Success = () => {
   useEffect(() => {
     const createOrder = async () => {
       try {
-       
         const res = await userRequest.post("/orders", {
           userId: userInfo._id,
           products: cart.cartItems.map((item) => ({
@@ -31,7 +29,6 @@ const Success = () => {
         });
      
         setOrderId(res.userInfo._id);
-        console.log(orderId)
       } catch {}
     };
    data && createOrder();
@@ -46,9 +43,7 @@ const Success = () => {
         justifyContent: "center",
       }}
     >
-      {orderId
-        ? `Order has been created successfully. Your order number is ${orderId}`
-        : `Successfull. Your order is being prepared...`}
+       The order has been successfully created, please pay when receiving the goods
       <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
     </div>
   );

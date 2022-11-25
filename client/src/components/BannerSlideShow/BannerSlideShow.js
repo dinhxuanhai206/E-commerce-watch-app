@@ -54,11 +54,6 @@ function BannerSlideShow(props) {
               </SwiperSlide>
             ))}
           </Swiper>
-          {ranking && ranking.length > 0 ? (
-            <div className="container">
-              <div className={cx("ranking")}>Ranking</div>
-            </div>
-          ) : null}
         </div>
       ) : (
         <div className={cx("no-data-banner")}>

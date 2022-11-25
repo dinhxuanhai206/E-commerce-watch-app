@@ -1,3 +1,4 @@
+@import "../../styles/_responsive";
 .wrapper {
   display: flex;
   justify-content: center;
@@ -12,6 +13,10 @@
   background: black;
   border-radius: 8px;
   overflow: hidden;
+  @include mobile {
+    width: 300px;
+    height: 500px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -22,6 +27,10 @@
     background: linear-gradient(0deg, transparent, #cdbc7a, #cdbc7a);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
+    @include mobile {
+      width: 300px;
+      height: 500px;
+    }
   }
   &::after {
     content: "";
@@ -34,6 +43,10 @@
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     animation-delay: -3s;
+    @include mobile {
+      width: 300px;
+      height: 500px;
+    }
   }
 }
 @keyframes animate {
@@ -53,6 +66,9 @@
   padding: 50px 40px;
   display: flex;
   flex-direction: column;
+  @include mobile {
+    padding: 50px 15px;
+  }
   & h2 {
     color: #cdbc7a;
     font-weight: 600;
@@ -63,6 +79,9 @@
     position: relative;
     width: 300px;
     margin-top: 35px;
+    @include mobile {
+      width: 270px;
+    }
     & input {
       position: relative;
       width: 100%;
@@ -140,3 +159,4 @@
 
   }
 }
+

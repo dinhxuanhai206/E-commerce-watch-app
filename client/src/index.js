@@ -7,6 +7,11 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import './styles/__app.scss'
 import { MediaQueryProvider } from "./context/MediaQueryContext";
+import AOS from 'aos'
+import "aos/dist/aos.css";
+AOS.init({
+  duration: 1200
+});
 
 ReactDOM.render(
   <React.StrictMode>

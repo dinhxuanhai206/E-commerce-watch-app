@@ -14,7 +14,7 @@ const Product = ({ item }) => {
     dispatch(add(item));
   };
   return (
-    <Link to={`/productdetail/${item._id}`} className={cx("item")}>
+    <Link to={`/productdetail/${item._id}`} className={cx("item")} data-aos="zoom-in">
       <div className={cx("item-image")}>
         <img src={item.image} alt="" className={cx("image")} />
       </div>
@@ -26,9 +26,6 @@ const Product = ({ item }) => {
       <div className={cx("color")}>{item.color}</div>
       <div className={cx("price")}>${item.price}</div>
       <div className={cx("link")}>
-        {/* <button className={cx("btn")} onClick={() => addCard(item)}>
-          add to cart
-        </button> */}
       </div>
     </Link>
   );

@@ -1,0 +1,59 @@
+@import "../../../styles/_app";
+.wrapper{
+
+}
+.comment-title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    @include tablet {
+        font-size: 16px;
+    }
+}
+.comment-input{
+    width: 40%;
+    margin-top: 40px;
+    .input{
+        padding: 0 10px;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgb(186, 184, 184);
+    }
+}
+.btn-submit{
+    margin: 10px 0;
+    padding: 7px 15px;
+    background: #000;
+    color: #cbdc7a;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.comment-content{
+    border-bottom: 1px solid #000;
+    margin-top: 40px;
+    padding: 20px 10px;
+}
+.comment-auth{
+    font-weight: bold;
+    font-size: 20px;
+    color: #cbdc7a;
+}
+.comment-text{
+    margin-bottom: 20px;
+}
+.comment-time{
+    font-size: 14px;
+    color: #000;
+}
+.comment-desc{
+ margin-bottom: 10px;
+ margin-left: 15px;
+}
+.btn-delete{
+    padding:2px 7px;
+    background: #000;
+    color: #cbdc7a;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}

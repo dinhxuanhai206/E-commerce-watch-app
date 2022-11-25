@@ -1,0 +1,61 @@
+@import "../../../styles/_app";
+.wrapper {
+  padding: 20px 30px;
+}
+.product-title{
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
+.product-items {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.btn-cancel {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #000;
+  color: #cdbc7a;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  @include mobile{
+    font-size: 12px;
+  }
+}
+.item-id {
+  color: white;
+  span {
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .item-quantity {
+    margin-left: 20px;
+  }
+  @include mobile{
+    font-size: 14px;
+    margin-right: 5px;
+    .item-quantity {
+      margin-left: 0px;
+    }
+  }
+}
+.product-name {
+  color: white;
+  
+  span {
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  @include mobile{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
