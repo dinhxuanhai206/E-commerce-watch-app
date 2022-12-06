@@ -9,15 +9,41 @@ import {
   deleteProduct,
   getOrder,
   getProducts,
+  updateOrder,
 } from "../../redux/apiCalls";
+import { useState } from "react";
+import { userRequest } from "../../requestMethods";
 
 export default function OrderList() {
   const dispatch = useDispatch();
   const orderProduct = useSelector((state) => state.order.orders);
+  
 
   useEffect(() => {
     getOrder(dispatch);
   }, [dispatch]);
+
+  const handleProcess = (id, product) => {
+    console.log(product);
+    const updateOrder = async () => {
+      try {
+        const res = await userRequest.put(`/orders/${id}`, {
+          userId: product.userId,
+          products: product.products.map((item) => ({
+            productId: item._id,
+            quantity: item.cartQuantity,
+          })),
+          amount: product.cartTotalAmount,
+          name: product.name,
+          phone: product.phone,
+          address: product.address,
+          status: "success",
+        });
+        console.log(res);
+      } catch {}
+    };
+    updateOrder();
+  };
 
   const handleDelete = (id) => {
     deleteOrder(id, dispatch);
@@ -54,12 +80,34 @@ export default function OrderList() {
     {
       field: "amount",
       headerName: "Price",
+      width: 110,
+    },
+    {
+      field: "phone",
+      headerName: "Phone",
       width: 120,
     },
     {
       field: "address",
       headerName: "Address",
-      width: 360,
+      width: 300,
+    },
+    {
+      field: "status",
+      headerName: "Process",
+      width: 120,
+      renderCell: (params) => {
+        return (
+          <>
+            <button
+              className={params.row.status === "success" ? "productListEdit" : "productListProcess"}
+              onClick={() => handleProcess(params.row._id, params.row)}
+            >
+              {params.row.status}
+            </button>
+          </>
+        );
+      },
     },
     {
       field: "action",
@@ -68,9 +116,6 @@ export default function OrderList() {
       renderCell: (params) => {
         return (
           <>
-            {/* <Link to={"/product/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
-            </Link> */}
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}

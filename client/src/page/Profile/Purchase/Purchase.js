@@ -20,16 +20,14 @@ const Purchase = () => {
 
   return (
     <div className={cx("wrapper")}>
-      <div className={cx('product-title')}>
-      Your order
-      </div>
+      <div className={cx("product-title")}>Your order</div>
       <div className={cx("product-items")}>
         {orderProduct.map((product) => (
           <div className={cx("product")} key={product._id}>
             {product.products.map((item, index) => (
               <div className={cx("item")} key={index}>
                 <p className={cx("item-id")}>
-                <span> Product_id:</span> {item._id}{" "}
+                  <span> Product_id:</span> {item._id}{" "}
                   <span className={cx("item-quantity")}>
                     Quantity: {item.quantity}
                   </span>
@@ -48,7 +46,18 @@ const Purchase = () => {
             <div className={cx("product-name")}>
               <span> Address : </span> {product.address}
             </div>
-            <button className={cx("btn-cancel")} onClick={()=>handleDelete(product._id)}>cancel order</button>
+            {product.status === "success" ? (
+              <div className={cx("success-title")}>
+                Your order will be shipped within 3 to 4 days, you will receive it, please wait for payment
+              </div>
+            ) : (
+              <button
+                className={cx("btn-cancel")}
+                onClick={() => handleDelete(product._id)}
+              >
+                cancel order
+              </button>
+            )}
           </div>
         ))}
       </div>

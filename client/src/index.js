@@ -5,23 +5,24 @@ import App from "./App";
 import { store, persistor } from "./redux/Store";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import './styles/__app.scss'
+import "./styles/__app.scss";
 import { MediaQueryProvider } from "./context/MediaQueryContext";
-import AOS from 'aos'
+import "./i18next";
+import AOS from "aos";
 import "aos/dist/aos.css";
 AOS.init({
-  duration: 1200
+  duration: 1200,
 });
 
 ReactDOM.render(
   <React.StrictMode>
-      <MediaQueryProvider>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <App />
-          </PersistGate>
-        </Provider>
-      </MediaQueryProvider>
+    <MediaQueryProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
+    </MediaQueryProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

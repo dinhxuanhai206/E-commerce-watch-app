@@ -48,8 +48,8 @@ const Comment = () => {
               </span>
             </div>
             <div className={cx("comment-desc")}>{item.body}</div>
-            <div>
-              <button onClick={()=>handleDelete(item._id)} className={cx("btn-delete")}>delete</button>
+            <div className={cx("btn-block")}>
+             <button onClick={()=>handleDelete(item._id)} className={cx("btn-delete")}>delete</button>
             </div>
           </div>
         ))}

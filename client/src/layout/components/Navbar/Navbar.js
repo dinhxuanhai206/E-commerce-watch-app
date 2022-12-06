@@ -18,20 +18,27 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/userSlice";
 import { toast } from "react-toastify";
+import LanguageModal from "../../../components/ModalMultiLanguage/ModalMultiLanguage";
+import vietnam from "../../../assets/images/vn.png";
+import kingdom from "../../../assets/images/au.png";
+import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
 
 const mainNav = [
   {
     display: "HOME",
+    displayVn: "TRANG CHỦ",
     path: "/",
   },
   {
     display: "INTRODUCE",
+    displayVn: "GIỚI THIỆU",
     path: "/introduce",
   },
   {
     display: "CONTACT",
+    displayVn: "LIÊN HỆ",
     path: "/contact",
   },
 ];
@@ -62,6 +69,8 @@ const Navbar = () => {
   const { userInfo } = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
   const [showUser, setShowUser] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const item = useSelector((state) => state.cart);
@@ -109,7 +118,7 @@ const Navbar = () => {
                 {mainNav.map((item, index) => (
                   <div key={index} className={cx("")}>
                     <Link to={item.path} className={cx("link")}>
-                      {item.display}
+                      {i18n.language === "vn" ? item.displayVn : item.display}
                     </Link>
                   </div>
                 ))}
@@ -119,23 +128,44 @@ const Navbar = () => {
               {userInfo?.username ? (
                 <div className={cx("nav-profile")}>
                   <div>{userInfo.username}</div>
-                  <div className={cx('profile-block')}>
-                      <Link to="/profile" className={cx("link-profile")}>
-                        Profile
-                      </Link>
+                  <div className={cx("profile-block")}>
+                    <Link to="/profile" className={cx("link-profile")}>
+                      {i18n.language === "vn" ? (
+                        <span>cá nhân</span>
+                      ) : (
+                        <span>Profile</span>
+                      )}
+                    </Link>
                   </div>
                 </div>
               ) : (
                 <Link to="/login" className={cx("sign")}>
-                  Sign in
+                  {i18n.language === "vn" ? (
+                    <span>Đăng Nhập</span>
+                  ) : (
+                    <span>Login</span>
+                  )}
                 </Link>
               )}
               <button
                 className={cx("btn-logout")}
                 onClick={() => handleLogout()}
               >
-                Logout
+                {i18n.language === "vn" ? (
+                  <span>Đăng Xuất</span>
+                ) : (
+                  <span>Logout</span>
+                )}
               </button>
+              <div className={cx("btn-language")}>
+                <img
+                  src={i18n.language === "vn" ? vietnam : kingdom}
+                  alt="btn-language"
+                  onClick={() => setShowModal(true)}
+                  className={cx("img-lan")}
+                />
+              </div>
+              <LanguageModal {...{ showModal, setShowModal }} />
               <Link to="/cart" className={cx("s-cart")}>
                 <AiOutlineShoppingCart className={cx("shopping")} />
                 <span className={cx("cart")}>{item.cartItems.length}</span>

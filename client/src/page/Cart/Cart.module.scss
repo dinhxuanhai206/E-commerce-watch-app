@@ -205,6 +205,9 @@
   position: absolute;
   right: 20px;
   top: 20px;
+  @include mobile{
+    top: 100px;
+  }
 }
 .box {
   position: relative;

@@ -97,6 +97,12 @@
     }
   }
 }
+.img-lan{
+  margin-bottom: -8px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
 .btn-logout {
   background: #000;
   color: white;
@@ -200,7 +206,8 @@
   visibility: hidden;
   top: 50px;
   left: -40px;
-  padding: 0 40px;
+  width: 150px;
+  padding-left: 50px;
   background: rgba(9, 8, 8, 0.8);
   &::after {
     content: "";
@@ -260,7 +267,7 @@
   content: "";
   position: absolute;
   top: -8%;
-  left: 50%;
+  left: 47%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;

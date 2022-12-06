@@ -8,6 +8,7 @@ import { publicRequest } from "../../requestMethods";
 import { toast, ToastContainer } from "react-toastify";
 import Describe from "./Describe/Describe";
 import Comment from "./Comment/Comment";
+import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +22,7 @@ const productTab = [
 ];
 
 const Product = () => {
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const [product, setProduct] = useState([]);
   const [active, setActive] = useState(0);
@@ -69,30 +71,83 @@ const Product = () => {
         <div className={cx("right")}>
           <div className={cx("block-name")}>
             <div className={cx("name")}>{product.title}</div>
-            <div className={cx("price")}>$ {product.price}</div>
+            <div className={cx("price")}>
+              {i18n.language === "vn" ? (
+                <span>
+                  {(product.price * 23000).toLocaleString("it-IT", {
+                    style: "currency",
+                    currency: "VND",
+                  })}
+                </span>
+              ) : (
+                <span>${product.price}</span>
+              )}
+            </div>
           </div>
           <div className={cx("color")}>
-            <div className={cx("title")}>COLOUR</div>
+            <div className={cx("title")}>
+              {" "}
+              {i18n.language === "vn" ? (
+                <span>MÀU SẮC</span>
+              ) : (
+                <span>COLOR</span>
+              )}
+            </div>
             <button
               style={{ backgroundColor: product.color }}
               className={cx("color-btn")}
             ></button>
           </div>
           <div className={cx("quantity")}>
-            <span className={cx("title")}>QUANTITY:</span>
+            <span className={cx("title")}>
+              {" "}
+              {i18n.language === "vn" ? (
+                <span>SÓ LƯỢNG:</span>
+              ) : (
+                <span>QUANTITY:</span>
+              )}
+            </span>
             <div className={cx("count")}>{cartQuantity}</div>
           </div>
           <div>
             <button className={cx("btn-add")} onClick={addCard}>
-              add to cart
+              {i18n.language === "vn" ? (
+                <span>Thêm vào cart</span>
+              ) : (
+                <span>add to cart</span>
+              )}
             </button>
           </div>
           <div className={cx("des")}>
-            <p className={cx("p")}>FreeShip</p>
-            <p className={cx("p")}>Free Return</p>
             <p className={cx("p")}>
-              Customs taxes and fees will be applied upon delivery in accordance
-              with Vietnam Customs regulations
+              {" "}
+              {i18n.language === "vn" ? (
+                <span>Miễn phí vận chuyển</span>
+              ) : (
+                <span>FreeShip</span>
+              )}
+            </p>
+            <p className={cx("p")}>
+              {" "}
+              {i18n.language === "vn" ? (
+                <span>Đổi trả miễn phí</span>
+              ) : (
+                <span>Free Return</span>
+              )}
+            </p>
+            <p className={cx("p")}>
+              {i18n.language === "vn" ? (
+                <span>
+                  Các loại thuế và phí hải quan sẽ được áp dụng khi giao hàng
+                  theo quy định của Hải quan Việt Nam
+                </span>
+              ) : (
+                <span>
+                  {" "}
+                  Customs taxes and fees will be applied upon delivery in
+                  accordance with Vietnam Customs regulations
+                </span>
+              )}
             </p>
           </div>
         </div>
@@ -111,42 +166,6 @@ const Product = () => {
         ))}
       </div>
       <div>{active === 0 ? <Describe product={product} /> : <Comment />}</div>
-
-      {/* <div className={cx("bottom")} data-aos="fade-up"
-        data-aos-duration="600">
-        <div className={cx("desc-title")}>describe</div>
-        <div className={cx("desc")}>{product.desc}</div>
-        <div className={cx("block")}>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>Thickness</div>
-            <div className={cx("prop")}>{product.thickness}</div>
-          </div>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>Color</div>
-            <div className={cx("prop")}>{product.color}</div>
-          </div>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>Move</div>
-            <div className={cx("prop")}>{product.Move}</div>
-          </div>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>Material</div>
-            <div className={cx("prop")}>{product.Material}</div>
-          </div>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>Strap</div>
-            <div className={cx("prop")}>{product.Strap}</div>
-          </div>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>SwapStraps</div>
-            <div className={cx("prop")}>{product.SwapStraps}</div>
-          </div>
-          <div className={cx("thickness")}>
-            <div className={cx("thickness-name")}>Waterproof</div>
-            <div className={cx("prop")}>{product.Waterproof}</div>
-          </div>
-        </div>
-      </div> */}
       <ToastContainer />
     </div>
   );

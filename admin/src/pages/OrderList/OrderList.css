@@ -4,3 +4,13 @@
 .productBlock{
     margin-right: 10px;
 }
+.productListEdit{
+    background-color: rgb(8, 138, 3);
+}
+.productListProcess{
+    background-color: red;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}

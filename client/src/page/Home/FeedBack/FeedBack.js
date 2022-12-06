@@ -8,11 +8,13 @@ import {
 } from "react-icons/hi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { dataFeedBack } from "./dataFeedBack";
+import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
 
 const Feedback = () => {
   const swiperRef = useRef();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={cx("feedback-area")}>
@@ -26,7 +28,13 @@ const Feedback = () => {
                 </span>
                 <span className={cx("text-area")}>Testimonials</span>
               </div> */}
-              <h2 className={cx("title")}>Users Feedback</h2>
+              <h2 className={cx("title")}>
+                {i18n.language === "vn" ? (
+                  <span>Người dùng phản hồi</span>
+                ) : (
+                  <span>Users Feedback</span>
+                )}
+              </h2>
             </div>
             <div className={cx("wrap-panigate-slide")}>
               <button onClick={() => swiperRef.current.swiper.slidePrev()}>
@@ -62,7 +70,11 @@ const Feedback = () => {
               {dataFeedBack.map((item, i) => (
                 <SwiperSlide key={i} className={cx("wrap-slide")}>
                   <div className={cx("wrap-review")}>
-                    <p className={cx("comment")}>{`“ ${item.comment} “`}</p>
+                    <p className={cx("comment")}>
+                      {i18n.language === "vn"
+                        ? `“ ${item.commentVn} “`
+                        : `“ ${item.comment} “`}
+                    </p>
                   </div>
                   <div className={cx("wrap-media")}>
                     <div className={cx("wrap-media__thumbnail")}>

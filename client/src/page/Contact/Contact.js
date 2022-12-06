@@ -4,17 +4,33 @@ import styles from "./Contact.module.scss";
 import { FiSend } from "react-icons/fi";
 import BannerSlideShow from "../../components/BannerSlideShow/BannerSlideShow";
 import images from "../../constant/imageHome";
+import { useTranslation } from "react-i18next";
 const cx = classNames.bind(styles);
 const bannerHome = [{ image: images.banner2 }];
 const Contact = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={cx("contact")}>
       <BannerSlideShow dataBanner={bannerHome} />
       <div className={cx("contact-wrapper", "container")}>
         <div className={cx("wrap-head")}>
-          <h5 className={cx("sub-title")}>CONTACT US</h5>
+          <h5 className={cx("sub-title")}>
+            {i18n.language === "vn" ? (
+              <span>LIÊN HỆ VỚI CHÚNG TÔI</span>
+            ) : (
+              <span>CONTACT US</span>
+            )}
+          </h5>
           <h2 className={cx("title")}>
-            Let's ask your questions<br></br>Need help?
+            {i18n.language === "vn" ? (
+              <span>
+                Hãy đặt câu hỏi của bạn<br></br>Bạn cần trợ giúp?
+              </span>
+            ) : (
+              <span>
+                Let's ask your questions<br></br>Need help?
+              </span>
+            )}
           </h2>
           <div className={cx("divider")}></div>
         </div>
@@ -22,33 +38,43 @@ const Contact = () => {
           <div className={cx("contact-us")} data-aos="fade-right">
             <div className={cx("address-items")}>
               <div className={cx("item")}>
-                <h4 className={cx("title")}>Office Location</h4>
+                <h4 className={cx("title")}>
+                  {" "}
+                  {i18n.language === "vn" ? (
+                    <span>Địa Chỉ Công Ty</span>
+                  ) : (
+                    <span>Office Location</span>
+                  )}
+                </h4>
                 <div className={cx("info")}>
                   <p>
-                    628C Xa Lo Ha Noi,
+                    A12, Đinh Tiên Hoàng
                     <br />
-                    Thu Duc, HCM City
+                    Q. Hoàn Kiếm, Hà Nội
                     <br /> W1U 3BW
                   </p>
                 </div>
               </div>
               <div className={cx("item")}>
-                <h4 className={cx("title")}>Contact Info</h4>
+                <h4 className={cx("title")}>
+                  {i18n.language === "vn" ? (
+                    <span>Thông Tin Liên Hệ</span>
+                  ) : (
+                    <span> Contact Info</span>
+                  )}
+                </h4>
                 <div className={cx("info")}>
                   <p>
-                    Phone: <span>+44-20-7328-4499</span>
+                    Phone: <span>+84 353 432 512</span>
                   </p>
                   <p>
-                    Fax: <span>+44-20-7328-4499</span>
-                  </p>
-                  <p>
-                    Email: <span> info@digilab.com</span>
+                    Email: <span>dinhxuanhai@gmail.com</span>
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className={cx("form-questions")} data-aos="fade-left">
+          <div className={cx("form-questions")} data-aos="fade-up">
             <form className={cx("form")}>
               <div className={cx("input-name")}>
                 <div className={cx("form-group")}>

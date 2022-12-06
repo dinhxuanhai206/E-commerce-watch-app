@@ -25,7 +25,7 @@ const Success = () => {
           name: data.name,
           phone: data.phone,
           address: data.address,
-          status:"success"
+          status:"processing"
         });
      
         setOrderId(res.userInfo._id);

@@ -1,4 +1,4 @@
-@import "../../styles/_responsive";
+@import "../../styles/_app";
 
 .contact-wrapper{
     padding-bottom: 60px;
@@ -11,7 +11,7 @@
   .sub-title {
     text-transform: uppercase;
     font-weight: 800;
-    color: #ee793c;
+    color: #cdbc7a;
     font-size: 18px;
     position: relative;
     z-index: 1;
@@ -39,7 +39,7 @@
     position: relative;
     height: 5px;
     border-radius: 30px;
-    background-color: #ee793c;
+    background-color: #cdbc7a;
     width: 90px;
     overflow: hidden;
 

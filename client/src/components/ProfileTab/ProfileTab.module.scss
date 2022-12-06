@@ -1,8 +1,10 @@
+@import "../../styles//_app";
 .profile-info {
   display: flex;
   gap: 20px;
   width: 100%;
-  margin: 30px 30px;
+  margin: 30px 0px;
+  padding: 0 30px;
   align-items: center;
 }
 .profile-image {

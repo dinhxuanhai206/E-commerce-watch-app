@@ -16,6 +16,7 @@ import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
 
@@ -25,7 +26,7 @@ const Cart = () => {
   const { register, handleSubmit } = useForm();
   const products = useSelector((state) => state.cart);
   const userInfo = useSelector((state) => state.user.userInfo);
-  
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,11 +47,11 @@ const Cart = () => {
     dispatch(clearCart());
   };
   useEffect(() => {
-		document.documentElement.scrollTop = 0
-	}, [])
+    document.documentElement.scrollTop = 0;
+  }, []);
 
   const submitForm = (data) => {
-    if(userInfo){
+    if (userInfo) {
       navigate("/success", {
         state: {
           infoData: data,
@@ -58,9 +59,8 @@ const Cart = () => {
         },
       });
       dispatch(clearCart());
-    }
-    else{
-      navigate("/login")
+    } else {
+      navigate("/login");
     }
   };
   return (
@@ -99,8 +99,20 @@ const Cart = () => {
                 <i></i>
               </div>
               <div className={cx("subtotal-node")}>
-                <span style={{ marginRight: "10px" }}>Subtotal:</span> $
-                {products.cartTotalAmount}
+                <span style={{ marginRight: "10px" }}>Subtotal:</span>{" "}
+                {i18n.language === "vn" ? (
+                  <span>
+                    {(products.cartTotalAmount * 23000).toLocaleString(
+                      "it-IT",
+                      {
+                        style: "currency",
+                        currency: "VND",
+                      }
+                    )}
+                  </span>
+                ) : (
+                  <span>$ {products.cartTotalAmount}</span>
+                )}
               </div>
               <input
                 type="submit"
@@ -113,17 +125,55 @@ const Cart = () => {
       ) : null}
       {products.cartItems.length === 0 ? (
         <div className={cx("wrapper")}>
-          <div className={cx("title")}>Shopping Cart</div>
-          <Link to="/" className={cx("bb-10")}>Go Back Shop</Link>
+          <div className={cx("title")}>
+            {" "}
+            {i18n.language === "vn" ? (
+              <span>Giỏ hàng</span>
+            ) : (
+              <span>Shopping Cart</span>
+            )}
+          </div>
+          <Link to="/" className={cx("bb-10")}>
+            Go Back Shop
+          </Link>
         </div>
       ) : (
         <div className={cx("wrapper-cart")}>
-          <div className={cx("title")}>Shopping Cart</div>
+          <div className={cx("title")}>
+            {i18n.language === "vn" ? (
+              <span>Giỏ hàng</span>
+            ) : (
+              <span>Shopping Cart</span>
+            )}
+          </div>
           <div className={cx("title-block")}>
-            <div className={cx("product")}>Product</div>
-            <div className={cx("product-price")}>Price</div>
-            <div className={cx("product-quantity")}>Quantity</div>
-            <div className={cx("product-total")}>Total</div>
+            <div className={cx("product")}>
+              {" "}
+              {i18n.language === "vn" ? (
+                <span>Sản Phẩm</span>
+              ) : (
+                <span>Product</span>
+              )}
+            </div>
+            <div className={cx("product-price")}>
+              {" "}
+              {i18n.language === "vn" ? <span>Giá</span> : <span>Price</span>}
+            </div>
+            <div className={cx("product-quantity")}>
+              {" "}
+              {i18n.language === "vn" ? (
+                <span>Số Lượng</span>
+              ) : (
+                <span>Quantity</span>
+              )}
+            </div>
+            <div className={cx("product-total")}>
+              {i18n.language === "vn" ? (
+                <span>Tổng Tiền</span>
+              ) : (
+                <span>Total</span>
+              )}
+            </div>
           </div>
           <div className={cx("cart-block")}>
             {products.cartItems.map((item, index) => (
@@ -138,11 +188,27 @@ const Cart = () => {
                       onClick={() => handleRemove(item)}
                       className={cx("btn-remove")}
                     >
-                      remove
+                      {i18n.language === "vn" ? (
+                        <span>Thu hồi</span>
+                      ) : (
+                        <span>Remove</span>
+                      )}
                     </button>
                   </div>
                 </div>
-                <div className={cx("price")}>${item.price}</div>
+                <div className={cx("price")}>
+                  {" "}
+                  {i18n.language === "vn" ? (
+                    <span>
+                      {(item.price * 23000).toLocaleString("it-IT", {
+                        style: "currency",
+                        currency: "VND",
+                      })}
+                    </span>
+                  ) : (
+                    <span>${item.price}</span>
+                  )}
+                </div>
                 <div className={cx("quantity")}>
                   <button
                     className={cx("btn")}
@@ -159,7 +225,19 @@ const Cart = () => {
                   </button>
                 </div>
                 <div className={cx("total")}>
-                  $ {item.price * item.cartQuantity}
+                  {i18n.language === "vn" ? (
+                    <span>
+                      {(item.price * 23000 * item.cartQuantity).toLocaleString(
+                        "it-IT",
+                        {
+                          style: "currency",
+                          currency: "VND",
+                        }
+                      )}
+                    </span>
+                  ) : (
+                    <span>${item.price * item.cartQuantity}</span>
+                  )}
                 </div>
               </div>
             ))}
@@ -167,19 +245,47 @@ const Cart = () => {
           <div className={cx("total-block")}>
             <div className={cx("clear")}>
               <button className={cx("btn-clear")} onClick={() => handleClear()}>
-                Clear
+                {i18n.language === "vn" ? (
+                  <span>Xóa hết</span>
+                ) : (
+                  <span>Clear</span>
+                )}
               </button>
             </div>
             <div className={cx("subTotal-block")}>
               <div className={cx("subTotal")}>
-                <div className={cx("subTotal-title")}>Subtotal:</div>
-                <div className={cx("name")}>$ {products.cartTotalAmount}</div>
+                <div className={cx("subTotal-title")}>
+                  {i18n.language === "vn" ? (
+                    <span>Tổng Cộng:</span>
+                  ) : (
+                    <span>Subtotal:</span>
+                  )}
+                </div>
+                <div className={cx("name")}>
+                  {i18n.language === "vn" ? (
+                    <span>
+                      {(products.cartTotalAmount * 23000).toLocaleString(
+                        "it-IT",
+                        {
+                          style: "currency",
+                          currency: "VND",
+                        }
+                      )}
+                    </span>
+                  ) : (
+                    <span>$ {products.cartTotalAmount}</span>
+                  )}
+                </div>
               </div>
               <button
                 className={cx("btn-check")}
                 onClick={() => setModal(true)}
               >
-                CHECKOUT NOW
+                {i18n.language === "vn" ? (
+                  <span>THANH TOÁN</span>
+                ) : (
+                  <span>CHECKOUT NOW</span>
+                )}
               </button>
             </div>
           </div>

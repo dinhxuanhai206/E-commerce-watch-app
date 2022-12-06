@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./BannerSlideShow.module.scss";
 import classNames from "classnames/bind";
@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { AiFillNotification } from "react-icons/ai";
+import { FaCartArrowDown} from "react-icons/fa";
+import { MediaQueryContext } from "../../context/MediaQueryContext";
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +21,7 @@ BannerSlideShow.propTypes = {
 };
 
 function BannerSlideShow(props) {
+  const breakpoint = useContext(MediaQueryContext);
   const { notification, dataBanner, ranking } = props;
 
   const pagination = {
@@ -61,6 +64,9 @@ function BannerSlideShow(props) {
           component BannerSlideShow
         </div>
       )}
+      {breakpoint.mobile ? (
+        <div className={cx("data-desc")}> <FaCartArrowDown style={{fontSize: "22px", marginRight: "10px", marginBottom: "5px"}}/> Return within 7 days</div>
+      ) : null}
     </div>
   );
 }

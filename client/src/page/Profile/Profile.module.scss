@@ -3,6 +3,9 @@
     background-color: rgba(23, 23, 23, 0.9);
     height: 100vh;
     padding: 100px 0;
+    @include tablet{
+        height: 100%;
+    }
 }
 .profile-wrapper{
    display: flex;

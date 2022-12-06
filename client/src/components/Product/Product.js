@@ -5,16 +5,22 @@ import { useDispatch } from "react-redux";
 import { add } from "../../redux/cartSlice";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 const cx = classNames.bind(styles);
 
 const Product = ({ item }) => {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const addCard = (item) => {
     dispatch(add(item));
   };
+
   return (
-    <Link to={`/productdetail/${item._id}`} className={cx("item")} data-aos="zoom-in">
+    <Link
+      to={`/productdetail/${item._id}`}
+      className={cx("item")}
+      data-aos="zoom-in"
+    >
       <div className={cx("item-image")}>
         <img src={item.image} alt="" className={cx("image")} />
       </div>
@@ -24,9 +30,19 @@ const Product = ({ item }) => {
         className={cx("color-btn")}
       ></button>
       <div className={cx("color")}>{item.color}</div>
-      <div className={cx("price")}>${item.price}</div>
-      <div className={cx("link")}>
+      <div className={cx("price")}>
+        {i18n.language === "vn" ? (
+          <span>
+            {(item.price * 23000).toLocaleString("it-IT", {
+              style: "currency",
+              currency: "VND",
+            })}
+          </span>
+        ) : (
+          <span>${item.price}</span>
+        )}
       </div>
+      <div className={cx("link")}></div>
     </Link>
   );
 };

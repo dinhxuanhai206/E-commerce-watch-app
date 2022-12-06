@@ -165,7 +165,7 @@ export default function NewProduct() {
             <label>Categories</label>
             <input
               type="text"
-              placeholder="jeans,skirts"
+              placeholder="all, men, women, collection"
               onChange={handleCat}
             />
           </div>

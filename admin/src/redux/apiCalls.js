@@ -133,3 +133,12 @@ export const deleteOrder = async (id, dispatch) => {
     dispatch(deleteOrderProductFailure());
   }
 };
+export const updateOrder = async (id, status, dispatch) => {
+  dispatch(updateOrderProductStart());
+  try {
+     const res = await userRequest.put(`/orders/${id}`);
+    dispatch(updateOrderProductSuccess(id, status));
+  } catch (err) {
+    dispatch(updateOrderProductFailure());
+  }
+};

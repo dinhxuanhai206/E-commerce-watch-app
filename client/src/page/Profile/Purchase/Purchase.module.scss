@@ -2,7 +2,7 @@
 .wrapper {
   padding: 20px 30px;
 }
-.product-title{
+.product-title {
   font-size: 30px;
   color: white;
   text-transform: uppercase;
@@ -22,7 +22,7 @@
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
-  @include mobile{
+  @include mobile {
     font-size: 12px;
   }
 }
@@ -37,7 +37,7 @@
   .item-quantity {
     margin-left: 20px;
   }
-  @include mobile{
+  @include mobile {
     font-size: 14px;
     margin-right: 5px;
     .item-quantity {
@@ -47,15 +47,22 @@
 }
 .product-name {
   color: white;
-  
+
   span {
     margin-right: 10px;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
   }
-  @include mobile{
+  @include mobile {
     font-size: 14px;
     margin-top: 10px;
   }
+}
+.success-title {
+  color: white;
+  padding-top: 5px;
+  margin-top: 10px;
+  border-top: 1px solid #000;
+  text-transform: uppercase;
 }
