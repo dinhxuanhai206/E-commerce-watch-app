@@ -6,7 +6,32 @@ import images from "../../constant/imageHome";
 import { useTranslation } from "react-i18next";
 const cx = classNames.bind(styles);
 
-const bannerHome = [{ image: images.banner2 }];
+const bannerHome = [
+  {
+    image: images.banner1,
+    title: "LOVE GIFT MONTH FOR EVERY CUSTOMER",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
+    desc: "10% OFF ",
+    text: " ANY TWO PRODUCTS",
+    textVn: "VỚI 2 SẢN PHẨM BẤT KÌ",
+  }, 
+  {
+    image: images.banner2,
+    title: "LOVE GIFT MONTH FOR EVERY CUSTOMER",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
+    desc: "10% OFF ",
+    text: " ANY TWO PRODUCTS",
+    textVn: "VỚI 2 SẢN PHẨM BẤT KÌ",
+  },
+  {
+    image: images.banner3,
+    title: "LOVE GIFT MONTH FOR EVERY CUSTOMER",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
+    desc: "10% OFF ",
+    text: " ANY TWO PRODUCTS",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
+  },
+];
 
 const Introduce = () => {
   const { t, i18n } = useTranslation();

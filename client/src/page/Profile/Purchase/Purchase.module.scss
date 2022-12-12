@@ -2,9 +2,12 @@
 .wrapper {
   padding: 20px 30px;
 }
+.product{
+  margin-top: 20px;
+}
 .product-title {
   font-size: 30px;
-  color: white;
+  color: rgb(179, 153, 6);
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
@@ -27,10 +30,10 @@
   }
 }
 .item-id {
-  color: white;
+  color: rgb(14, 14, 14);
   span {
     margin-right: 10px;
-    color: white;
+    color: rgb(16, 16, 16);
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -46,11 +49,11 @@
   }
 }
 .product-name {
-  color: white;
+  color: rgb(21, 21, 21);
 
   span {
     margin-right: 10px;
-    color: white;
+    color: rgb(23, 23, 23);
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -60,8 +63,9 @@
   }
 }
 .success-title {
-  color: white;
-  padding-top: 5px;
+  color: rgb(164, 153, 9);
+  font-weight: bold;
+  padding-top: 25px;
   margin-top: 10px;
   border-top: 1px solid #000;
   text-transform: uppercase;

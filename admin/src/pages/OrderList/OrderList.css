@@ -4,13 +4,43 @@
 .productBlock{
     margin-right: 10px;
 }
-.productListEdit{
-    background-color: rgb(8, 138, 3);
-}
-.productListProcess{
-    background-color: red;
-    padding: 5px 10px;
+.productListyellow{
+    background-color: rgb(204, 204, 61);
+    padding: 0px 10px;
+    text-decoration: none;
     border: none;
     border-radius: 10px;
     color: white;
+    line-height: 30px;
+    cursor: pointer;
+}
+.productListEdit{
+    background-color: rgb(8, 138, 3);
+    padding: 0px 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    line-height: 30px;
+    cursor: pointer;
+}
+.productListdelivered{
+    background-color: rgb(56, 32, 242);
+    padding: 0px 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 30px;
+}
+.productListProcess{
+    background-color: red;
+    padding: 0px 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    line-height: 30px;
 }

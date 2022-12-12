@@ -81,7 +81,6 @@
     margin-top: 35px;
     @include mobile {
       width: 270px;
-  
     }
     & input {
       position: relative;
@@ -156,4 +155,7 @@
     font-weight: 600;
     cursor: pointer;
   }
+}
+.valid-error-message {
+  color: white;
 }

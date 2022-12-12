@@ -9,8 +9,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { AiFillNotification } from "react-icons/ai";
-import { FaCartArrowDown} from "react-icons/fa";
+import { FaCartArrowDown } from "react-icons/fa";
 import { MediaQueryContext } from "../../context/MediaQueryContext";
+import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +22,7 @@ BannerSlideShow.propTypes = {
 };
 
 function BannerSlideShow(props) {
+  const { t, i18n } = useTranslation();
   const breakpoint = useContext(MediaQueryContext);
   const { notification, dataBanner, ranking } = props;
 
@@ -53,6 +55,16 @@ function BannerSlideShow(props) {
               <SwiperSlide key={index} className={cx("swiper-slide")}>
                 <Link to={item.link ? item.link : "#"}>
                   <img src={item.image} className={cx("img")} />
+                  <div className={cx("slide-block")}>
+                    <div className={cx("slide-title")}>
+                      {i18n.language === "vn" ? item.titleVn : item.title}
+                    </div>
+                    <div className={cx("slide-desc")}>{item.desc}</div>
+                    <div className={cx("slide-text")}>
+                      {i18n.language === "vxn" ? item.textVn : item.text}
+                    </div>
+                    <button className={cx("btn-start")}>Start</button>
+                  </div>
                 </Link>
               </SwiperSlide>
             ))}
@@ -65,7 +77,17 @@ function BannerSlideShow(props) {
         </div>
       )}
       {breakpoint.mobile ? (
-        <div className={cx("data-desc")}> <FaCartArrowDown style={{fontSize: "22px", marginRight: "10px", marginBottom: "5px"}}/> Return within 7 days</div>
+        <div className={cx("data-desc")}>
+          {" "}
+          <FaCartArrowDown
+            style={{
+              fontSize: "22px",
+              marginRight: "10px",
+              marginBottom: "5px",
+            }}
+          />{" "}
+          Return within 7 days
+        </div>
       ) : null}
     </div>
   );

@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { userRequest } from "../../requestMethods";
-
+import successImg from "../../assets/images/th.jpg";
 const Success = () => {
   const { state } = useLocation();
- 
+
   //in Cart.jsx I sent data and cart. Please check that page for the changes.(in video it's only data)
   const data = state.infoData;
   const cart = state.product;
@@ -25,13 +25,15 @@ const Success = () => {
           name: data.name,
           phone: data.phone,
           address: data.address,
-          status:"processing"
+          status: "processing",
+          payment: "waiting for payment",
+          customer: "check",
         });
-     
+
         setOrderId(res.userInfo._id);
       } catch {}
     };
-   data && createOrder();
+    data && createOrder();
   }, [cart, data, userInfo]);
   return (
     <div
@@ -43,7 +45,11 @@ const Success = () => {
         justifyContent: "center",
       }}
     >
-       The order has been successfully created, please pay when receiving the goods
+      <div>
+        <img src={successImg } alt=""/>
+      </div>
+      The order has been successfully created, please pay when receiving the
+      goods
       <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
     </div>
   );

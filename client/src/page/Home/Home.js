@@ -15,17 +15,21 @@ const cx = classNames.bind(styles);
 const bannerHome = [
   {
     image: images.banner1,
-    title: "MONTH OF LOVE GIFTS",
+    title: "LOVE GIFT MONTH FOR EVERY CUSTOMER",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
     desc: "10% OFF ",
-    text: " VỚI 2 SẢN PHẨM BẤT KỲ",
-  },
+    text: " ANY TWO PRODUCTS",
+    textVn: "VỚI 2 SẢN PHẨM BẤT KÌ",
+  }, 
   {
-    image: images.banner2,
-    title: "MONTH OF LOVE GIFTS",
+    image: images.banner3,
+    title: "LOVE GIFT MONTH FOR EVERY CUSTOMER",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
     desc: "10% OFF ",
-    text: " VỚI 2 SẢN PHẨM BẤT KỲ",
+    text: " ANY TWO PRODUCTS",
+    titleVn: "THÁNG QUÀ TẶNG YÊU THƯƠNG ",
   },
-  { image: images.banner3 },
+  
 ];
 const Home = () => {
   const { t, i18n } = useTranslation();

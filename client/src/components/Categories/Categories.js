@@ -88,17 +88,23 @@ const Categories = () => {
           ))}
         </div>
       ) : (
-        <div className={cx("wrapper")}>
-          {fillterButton.map((item, index) => (
-            <Link
-              to={`/product/${item.cat}`}
-              className={cx("title")}
-              key={index}
-            >
-              <button className={cx("btn")}>
-                {i18n.language === "vn" ? item.displayVn : item.display}
-              </button>
-            </Link>
+        <div className={cx("wrapper-per")}>
+          {fillterButtonMobile.map((item, index) => (
+             <Link
+             to={`/product/${item.cat}`}
+             className={cx("link-per")}
+             key={index}
+           >
+             <div className={cx("link-img-per")}>
+               <img src={item.img} alt="" className={cx("image-per")} />
+               <div className={cx("link-title-per")}>
+                 <div className={cx("title-per")}>{item.display}</div>
+                 <div className={cx("")}>
+                   <HiArrowRight className={cx("right-icons-per")} />
+                 </div>
+               </div>
+             </div>
+           </Link>
           ))}
         </div>
       )}

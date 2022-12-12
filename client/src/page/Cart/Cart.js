@@ -92,7 +92,10 @@ const Cart = () => {
               <div className={cx("inputBox")}>
                 <input
                   type="number"
-                  {...register("phone")}
+                  {...register("phone", {
+                    required: true,
+                    pattern: /^\d{10}$/,
+                  })}
                   required="required"
                 />
                 <span>Phone</span>

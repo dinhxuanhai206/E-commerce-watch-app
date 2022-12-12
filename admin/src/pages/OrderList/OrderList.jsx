@@ -17,14 +17,12 @@ import { userRequest } from "../../requestMethods";
 export default function OrderList() {
   const dispatch = useDispatch();
   const orderProduct = useSelector((state) => state.order.orders);
-  
 
   useEffect(() => {
     getOrder(dispatch);
   }, [dispatch]);
 
   const handleProcess = (id, product) => {
-    console.log(product);
     const updateOrder = async () => {
       try {
         const res = await userRequest.put(`/orders/${id}`, {
@@ -37,12 +35,56 @@ export default function OrderList() {
           name: product.name,
           phone: product.phone,
           address: product.address,
-          status: "success",
+          status: "transport",
         });
         console.log(res);
       } catch {}
     };
     updateOrder();
+  };
+
+  const handlePayment = (id, product) => {
+    const updatePayment = async () => {
+      try {
+        const res = await userRequest.put(`/orders/${id}`, {
+          userId: product.userId,
+          products: product.products.map((item) => ({
+            productId: item._id,
+            quantity: item.cartQuantity,
+          })),
+          amount: product.cartTotalAmount,
+          name: product.name,
+          phone: product.phone,
+          address: product.address,
+          status: "success",
+          payment: "delivered",
+        });
+        console.log(res);
+      } catch {}
+    };
+    updatePayment();
+  };
+  const handleCencel = (id, product) => {
+    const updateCencel = async () => {
+      try {
+        const res = await userRequest.put(`/orders/${id}`, {
+          userId: product.userId,
+          products: product.products.map((item) => ({
+            productId: item._id,
+            quantity: item.cartQuantity,
+          })),
+          amount: product.cartTotalAmount,
+          name: product.name,
+          phone: product.phone,
+          address: product.address,
+          status: "failed order",
+          payment: "delivery failed",
+          customer: "cancel",
+        });
+        console.log(res);
+      } catch {}
+    };
+    updateCencel();
   };
 
   const handleDelete = (id) => {
@@ -54,7 +96,7 @@ export default function OrderList() {
     {
       field: "Name",
       headerName: "Name",
-      width: 200,
+      width: 120,
       renderCell: (params) => {
         return <div className="productListItem">{params.row.name}</div>;
       },
@@ -63,7 +105,7 @@ export default function OrderList() {
     {
       field: "products",
       headerName: "Products",
-      width: 400,
+      width: 200,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -99,12 +141,101 @@ export default function OrderList() {
       renderCell: (params) => {
         return (
           <>
-            <button
-              className={params.row.status === "success" ? "productListEdit" : "productListProcess"}
-              onClick={() => handleProcess(params.row._id, params.row)}
-            >
-              {params.row.status}
-            </button>
+            {params.row.status === "success" ||
+            params.row.status === "failed order" ? (
+              <button
+                className={
+                  params.row.status === "success"
+                    ? "productListEdit"
+                    : "productListProcess"
+                }
+              >
+                {params.row.status}
+              </button>
+            ) : (
+              <a
+                href="https://khachhang.giaohangtietkiem.vn/web/"
+                className={
+                  params.row.status === "transport"
+                    ? "productListdelivered"
+                    : "productListyellow"
+                }
+                onClick={() => handleProcess(params.row._id, params.row)}
+              >
+                {params.row.status}
+              </a>
+            )}
+          </>
+        );
+      },
+    },
+    {
+      field: "payment",
+      headerName: "Shiper",
+      width: 150,
+      renderCell: (params) => {
+        return (
+          <>
+            {params.row.payment === "delivered" ||
+            params.row.payment === "delivery failed" ||
+            params.row.status === "processing" ? (
+              <button
+                className={
+                  params.row.payment === "delivered"
+                    ? "productListEdit"
+                    : "productListProcess" ||
+                      params.row.payment === "delivery failed"
+                    ? "productListProcess"
+                    : "productListEdit"
+                }
+              >
+                {params.row.payment}
+              </button>
+            ) : (
+              <button
+                className={
+                  params.row.payment === "delivered"
+                    ? "productListEdit"
+                    : "productListProcess"
+                }
+                onClick={() => handlePayment(params.row._id, params.row)}
+              >
+                {params.row.payment}
+              </button>
+            )}
+          </>
+        );
+      },
+    },
+    {
+      field: "customer",
+      headerName: "Customer",
+      width: 120,
+      renderCell: (params) => {
+        return (
+          <>
+            {params.row.payment === "delivered" || params.row.status === "processing"? (
+              <button
+                className={
+                  params.row.customer === "check"
+                    ? "productListEdit"
+                    : "productListProcess"
+                }
+              >
+                {params.row.customer}
+              </button>
+            ) : (
+              <button
+                className={
+                  params.row.customer === "cancel"
+                    ? "productListProcess"
+                    : "productListEdit"
+                }
+                onClick={() => handleCencel(params.row._id, params.row)}
+              >
+                {params.row.customer}
+              </button>
+            )}
           </>
         );
       },
