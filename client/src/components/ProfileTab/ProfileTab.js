@@ -3,21 +3,25 @@ import classNames from "classnames/bind";
 import styles from "./ProfileTab.module.scss";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const cx = classNames.bind(styles);
 const profileData = [
   {
     title: "My Account",
+    titleVn: "Tài Khoản Của Tôi",
     link: "account",
   },
   {
     title: "Purchase Order",
+    titleVn: "Đơn Hàng Đã Mua",
     link: "purchase",
   },
 ];
 
 const ProfileTab = () => {
   const [active, setActive] = useState(null);
+  const { t, i18n } = useTranslation();
   const userInfo = useSelector((state) => state.user.userInfo);
   return (
     <div className={cx("profile-tab")}>
@@ -39,7 +43,7 @@ const ProfileTab = () => {
             key={index}
             onClick={() => setActive(index)}
           >
-            {item.title}
+            {i18n.language === "vn" ? item.titleVn : item.title}
           </Link>
         ))}
       </div>

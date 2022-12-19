@@ -15,9 +15,11 @@ const cx = classNames.bind(styles);
 const productTab = [
   {
     title: "Describe",
+    titleVn: "Miêu tả",
   },
   {
     title: "Comments",
+    titleVn: "Bình luận",
   },
 ];
 
@@ -161,7 +163,7 @@ const Product = () => {
             key={index}
             onClick={() => setActive(index)}
           >
-            {item.title}
+            {i18n.language === "vn" ? item.titleVn : item.title}
           </div>
         ))}
       </div>

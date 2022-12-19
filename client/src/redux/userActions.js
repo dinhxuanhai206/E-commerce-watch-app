@@ -21,10 +21,10 @@ export const userLogin = createAsyncThunk(
       return data;
     } catch (error) {
       // return custom error message from API if any
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
+      if (error.response && error.response.data.status) {
+        return rejectWithValue(error.response.data.status);
       } else {
-        return rejectWithValue(error.message);
+        return rejectWithValue(error.status);
       }
     }
   }

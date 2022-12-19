@@ -20,6 +20,7 @@ const Register = () => {
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
+      .max(32)
       .required("Password is required"),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
@@ -45,27 +46,18 @@ const Register = () => {
           <div className={cx("inputBox")}>
             <input type="email" required="required" {...register("email")} />
             <span>Email</span>
-            <p>
-              {errors.email && (
-                <span className={cx("valid-error-message")}>
-                  {errors.email.message}
-                </span>
-              )}
-            </p>
+
             <i></i>
           </div>
+          <p className={cx("valid-error-message")}>{errors.email?.message}</p>
           <div className={cx("inputBox")}>
             <input type="text" required="required" {...register("username")} />
             <span>Username</span>
-            <p>
-              {errors.username && (
-                <span className={cx("valid-error-message")}>
-                  {errors.username.message}
-                </span>
-              )}
-            </p>
             <i></i>
           </div>
+          <p className={cx("valid-error-message")}>
+            {errors.username?.message}
+          </p>
           <div className={cx("inputBox")}>
             <input
               type="password"
@@ -73,16 +65,11 @@ const Register = () => {
               {...register("password")}
             />
             <span>Password</span>
-            <p>
-              {errors.password && (
-                <span className={cx("valid-error-message")}>
-                  {errors.password.message}
-                </span>
-              )}
-            </p>
             <i></i>
           </div>
-
+          <p className={cx("valid-error-message")}>
+            {errors.password?.message}
+          </p>
           <input type="submit" value="Register" className={cx("btn-submit")} />
         </form>
       </div>

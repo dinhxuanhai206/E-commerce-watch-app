@@ -13,6 +13,7 @@ function App() {
         {PublicRoutes.map((route, index) => {
           const Page = route.component;
           const Layout = DefaultLayout;
+
           return (
             <Route
               key={index}
@@ -38,14 +39,18 @@ function App() {
                 </Layout>
               }
             >
-            {
-              route.children ? route.children?.map((children, i) => {
-                const Children = children.component
-                return (
-                  <Route key={i} path={`${children.path}`} element={<Children />} />
-                )
-              }) : null
-            }
+              {route.children
+                ? route.children?.map((children, i) => {
+                    const Children = children.component;
+                    return (
+                      <Route
+                        key={i}
+                        path={`${children.path}`}
+                        element={<Children />}
+                      />
+                    );
+                  })
+                : null}
             </Route>
           );
         })}

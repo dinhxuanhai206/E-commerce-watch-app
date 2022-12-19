@@ -9,7 +9,7 @@ const Describe = ({product}) => {
     <div className={cx("wrapper")}>
       <div className={cx("bottom")}>
         {/* <div className={cx("desc-title")}>describe</div> */}
-        <div className={cx("desc")}>{product.desc}</div>
+        {/* <div className={cx("desc")}>{product.desc}</div> */}
         <div className={cx("block")}>
           <div className={cx("thickness")}>
             <div className={cx("thickness-name")}>Thickness</div>

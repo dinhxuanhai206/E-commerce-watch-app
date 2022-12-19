@@ -78,7 +78,7 @@ const Categories = () => {
               <div className={cx("link-img")}>
                 <img src={item.img} alt="" className={cx("image")} />
                 <div className={cx("link-title")}>
-                  <div className={cx("title")}>{item.display}</div>
+                  <div className={cx("title")}>{i18n.language === "vn"? item.displayVn:  item.display}</div>
                   <div className={cx("")}>
                     <HiArrowRight className={cx("right-icons")} />
                   </div>
@@ -98,7 +98,7 @@ const Categories = () => {
              <div className={cx("link-img-per")}>
                <img src={item.img} alt="" className={cx("image-per")} />
                <div className={cx("link-title-per")}>
-                 <div className={cx("title-per")}>{item.display}</div>
+                 <div className={cx("title-per")}>{i18n.language === "vn"? item.displayVn : item.display}</div>
                  <div className={cx("")}>
                    <HiArrowRight className={cx("right-icons-per")} />
                  </div>

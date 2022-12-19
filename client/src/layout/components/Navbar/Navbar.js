@@ -22,6 +22,7 @@ import LanguageModal from "../../../components/ModalMultiLanguage/ModalMultiLang
 import vietnam from "../../../assets/images/vn.png";
 import kingdom from "../../../assets/images/au.png";
 import { useTranslation } from "react-i18next";
+import ToggleLanguage from "../../../components/ToggleLanguage/ToggleLanguage";
 
 const cx = classNames.bind(styles);
 
@@ -157,7 +158,10 @@ const Navbar = () => {
                   <span>Logout</span>
                 )}
               </button>
-              <div className={cx("btn-language")}>
+
+              <ToggleLanguage />
+
+              {/* <div className={cx("btn-language")}>
                 <img
                   src={i18n.language === "vn" ? vietnam : kingdom}
                   alt="btn-language"
@@ -165,7 +169,7 @@ const Navbar = () => {
                   className={cx("img-lan")}
                 />
               </div>
-              <LanguageModal {...{ showModal, setShowModal }} />
+              <LanguageModal {...{ showModal, setShowModal }} /> */}
               <Link to="/cart" className={cx("s-cart")}>
                 <AiOutlineShoppingCart className={cx("shopping")} />
                 <span className={cx("cart")}>{item.cartItems.length}</span>
@@ -173,6 +177,15 @@ const Navbar = () => {
             </div>
             <div className={cx("nav__mobile")}>
               <div className={cx("nav__mobile-content")}>
+                <div className={cx("btn-language")}>
+                  <img
+                    src={i18n.language === "vn" ? vietnam : kingdom}
+                    alt="btn-language"
+                    onClick={() => setShowModal(true)}
+                    className={cx("img-lan")}
+                  />
+                </div>
+                <LanguageModal {...{ showModal, setShowModal }} />
                 <div className={cx("content-user")}>
                   <FaUserCircle
                     className={cx("user-icons")}

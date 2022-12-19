@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./DefaultLayout.module.scss";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import i18n from "../../i18next";
 
 const cx = classNames.bind(styles);
 

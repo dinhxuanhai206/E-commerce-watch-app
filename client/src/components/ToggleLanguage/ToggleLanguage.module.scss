@@ -1,0 +1,63 @@
+@import "../../styles/_app";
+
+.toggle-language {
+  margin-top: 25px;
+  position: relative;
+  height: 18px;
+  width: 40px;
+  border-radius: 50px;
+  background: #e4e4e4;
+  cursor: pointer;
+  transition: 0.1s background ease-out;
+
+  @include mobile {
+    margin-right: 10px;
+    height: 12px;
+    width: 30px;
+  }
+}
+.img {
+  width: 25px;
+  height: 25px;
+}
+.btn-change {
+  position: absolute;
+  top: 50%;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #bdc3c7;
+  transform: translateY(-50%);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+
+  @include mobile {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.vn .btn-change {
+  animation: toggleOn 0.2s ease-out forwards;
+}
+
+.en .btn-change {
+  animation: toggleOff 0.2s ease-out forwards;
+}
+
+@keyframes toggleOn {
+  0% {
+    left: -5px;
+  }
+  100% {
+    left: calc(100% - 24px + 5px);
+  }
+}
+
+@keyframes toggleOff {
+  0% {
+    left: calc(100% - 24px + 5px);
+  }
+  100% {
+    left: -5px;
+  }
+}

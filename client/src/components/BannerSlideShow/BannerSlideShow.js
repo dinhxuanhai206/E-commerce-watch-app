@@ -61,7 +61,7 @@ function BannerSlideShow(props) {
                     </div>
                     <div className={cx("slide-desc")}>{item.desc}</div>
                     <div className={cx("slide-text")}>
-                      {i18n.language === "vxn" ? item.textVn : item.text}
+                      {i18n.language === "vn" ? item.textVn : item.text}
                     </div>
                     <button className={cx("btn-start")}>Start</button>
                   </div>
@@ -86,7 +86,11 @@ function BannerSlideShow(props) {
               marginBottom: "5px",
             }}
           />{" "}
-          Return within 7 days
+          {i18n.language === "vn" ? (
+            <span>Trả hàng trong 7 ngày</span>
+          ) : (
+            <span> Return within 7 days</span>
+          )}
         </div>
       ) : null}
     </div>

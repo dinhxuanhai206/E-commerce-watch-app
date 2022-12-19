@@ -19,7 +19,9 @@ ReactDOM.render(
     <MediaQueryProvider>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <App />
+          <React.Suspense fallback="loading">
+            <App />
+          </React.Suspense>
         </PersistGate>
       </Provider>
     </MediaQueryProvider>
